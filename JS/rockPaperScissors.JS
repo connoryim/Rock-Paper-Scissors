@@ -7,9 +7,20 @@
 
 
 function getComputerChoice(){
-    var choices =["rock","paper","scissors"]
-    var computerSelection = choices[Math.floor(Math.random()*choices.length)];
+    let choices =["rock","paper","scissors"]
+    let computerSelection = choices[Math.floor(Math.random()*choices.length)];
     return computerSelection;
 }
 ;
-console.log(getComputerChoice());
+
+function getPlayerChoice(){
+    let playerSelection = prompt("Choose rock, paper, or scissors.");
+    playerSelection = playerSelection.toLowerCase();
+    console.log(playerSelection)
+    if (playerSelection === "rock"||"paper"||"scissors") {
+        return playerSelection;
+    }
+}
+
+
+console.log(getPlayerChoice());
