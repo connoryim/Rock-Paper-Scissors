@@ -72,9 +72,10 @@ function game(){
 
 const results = document.querySelector("#results");
 const buttons = document.querySelectorAll("button");
+const score = document.querySelector("#score");
 
-let playerScore = 0;
-let computerScore = 0;
+var playerScore = 0;
+var computerScore = 0;
 
 buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
@@ -91,6 +92,8 @@ buttons.forEach((button) => {
         const para = document.createElement("p");
         para.appendChild(node);
         results.appendChild(para);
+        
+        scoreUpdate(playerScore,computerScore);
 
         if(playerScore === 5){
             const para = document.createElement("p");
@@ -108,3 +111,9 @@ buttons.forEach((button) => {
 });
 
 
+function scoreUpdate (playerScore,computerScore){
+    score.textContent = "Player Score: " + playerScore + " Computer Score: " + computerScore; 
+}
+
+
+scoreUpdate(playerScore,computerScore);
