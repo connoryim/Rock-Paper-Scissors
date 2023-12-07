@@ -100,12 +100,18 @@ buttons.forEach((button) => {
             let node = document.createTextNode("You've won the game!")
             para.appendChild(node);
             results.appendChild(para);
+            playerScore = 0;
+            computerScore = 0;
+            return playerScore, computerScore;
         }
         else if(computerScore === 5){
             const para = document.createElement("p");
             let node = document.createTextNode("You've lost the game...")
             para.appendChild(node);
             results.appendChild(para);
+            playerScore = 0;
+            computerScore = 0;
+            return playerScore, computerScore;
         }
     });
 });
