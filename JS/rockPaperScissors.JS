@@ -78,6 +78,13 @@ buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
         console.log("Hello");
         let playerSelection = button.id;
-        console.log(playRound(playerSelection,getComputerChoice()));
+        const results = document.querySelector("#results");
+
+        const para = document.createElement("p");
+        let node = document.createTextNode(playRound(playerSelection,getComputerChoice()));
+
+        para.appendChild(node);
+        console.log(para);
+        results.appendChild(para);
     });
 });
