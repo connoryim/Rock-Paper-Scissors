@@ -48,27 +48,6 @@ function playRound(playerSelection,computerSelection){
     }
 };
 
-function game(){
-    var i = 0;
-    var playerScore = 0;
-    var computerScore = 0;
-    
-    console.log(playerScore);
-    console.log(computerScore);
-    
-    if (playerScore > computerScore){
-        message = "You win with a score of " + playerScore + " to " + computerScore;
-        return message;
-    }
-    else if(playerScore < computerScore){
-        message = "You lose with a score of " + playerScore +" to " + computerScore;
-        return message;
-    }
-    else{
-        message = "It's a tie! with a score of " + playerScore +" to " + computerScore;
-        return message;
-    }
-};
 
 const results = document.querySelector("#results");
 const buttons = document.querySelectorAll("button");
@@ -79,19 +58,16 @@ var computerScore = 0;
 
 buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
-        let node = document.createTextNode(playRound(button.id,getComputerChoice()));
-        console.log(node.textContent);
-        if(node.textContent.includes("win")){
+        let node = playRound(button.id,getComputerChoice());
+        if(node.includes("win")){
             ++playerScore;
-            console.log(playerScore);
         }
-        else if(node.textContent.includes("lose")){
+        else if(node.includes("lose")){
             ++computerScore;
-            console.log(computerScore);
         }
         const para = document.createElement("p");
-        para.appendChild(node);
-        results.appendChild(para);
+        results.textContent = node;
+    
         
         scoreUpdate(playerScore,computerScore);
 
@@ -118,8 +94,7 @@ buttons.forEach((button) => {
 
 
 function scoreUpdate (playerScore,computerScore){
-    score.textContent = "Player Score: " + playerScore + " Computer Score: " + computerScore; 
+    score.textContent = "Player: " + playerScore + " Computer: " + computerScore; 
 }
-
 
 scoreUpdate(playerScore,computerScore);

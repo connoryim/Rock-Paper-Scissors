@@ -1,0 +1,19 @@
+html{
+    background-color: black;
+    color: white;
+}
+
+
+#results{
+    font-weight: 700;
+    font-size: larger;
+    text-align: center;
+}
+
+#buttons{ 
+    text-align: center;
+};
+    
+#score{
+    text-align: center;
+};
