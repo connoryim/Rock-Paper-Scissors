@@ -15,6 +15,7 @@ function getComputerChoice(){
 
 function playRound(playerSelection,computerSelection){
     //if player chooses rock
+    console.log("Round");
     if ((playerSelection ==="rock") && (computerSelection ==="scissors")){
         let message = "You win! " + playerSelection + " beats " + computerSelection;
         return message;   
@@ -77,5 +78,6 @@ buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
         console.log("Hello");
         let playerSelection = button.id;
+        console.log(playRound(playerSelection,getComputerChoice()));
     });
 });
