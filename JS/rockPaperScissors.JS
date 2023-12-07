@@ -14,8 +14,7 @@ function getComputerChoice(){
 ;
 
 function playRound(playerSelection,computerSelection){
-    //if player chooses rock
-    console.log("Round");
+    
     if ((playerSelection ==="rock") && (computerSelection ==="scissors")){
         let message = "You win! " + playerSelection + " beats " + computerSelection;
         return message;   
@@ -24,7 +23,7 @@ function playRound(playerSelection,computerSelection){
         let message = "You lose! " + computerSelection + " beats " + playerSelection;
         return message;
     }
-    //if player chooses paper
+    
     else if ((playerSelection ==="paper") && (computerSelection ==="rock")){
         let message = "You win! " + playerSelection + " beats " + computerSelection;
         return message;
@@ -33,7 +32,7 @@ function playRound(playerSelection,computerSelection){
         let message = "You lose! " + computerSelection + " beats " + playerSelection;
         return message;
     }
-    //if player choses scissors
+    
     else if ((playerSelection ==="scissors") && (computerSelection ==="paper")){
         let message = "You win! " + playerSelection + " beats " + computerSelection;
         return message;
@@ -42,7 +41,7 @@ function playRound(playerSelection,computerSelection){
         let message = "You lose! " + computerSelection + " beats " + playerSelection;
         return message;
     }
-    //if both player and computer have the same choice
+    
     else{
         let message = "It's a tie!"
         return message;
@@ -71,20 +70,41 @@ function game(){
     }
 };
 
-
+const results = document.querySelector("#results");
 const buttons = document.querySelectorAll("button");
+
+let playerScore = 0;
+let computerScore = 0;
 
 buttons.forEach((button) => {
     button.addEventListener("click", ()=>{
-        console.log("Hello");
-        let playerSelection = button.id;
-        const results = document.querySelector("#results");
-
+        let node = document.createTextNode(playRound(button.id,getComputerChoice()));
+        console.log(node.textContent);
+        if(node.textContent.includes("win")){
+            ++playerScore;
+            console.log(playerScore);
+        }
+        else if(node.textContent.includes("lose")){
+            ++computerScore;
+            console.log(computerScore);
+        }
         const para = document.createElement("p");
-        let node = document.createTextNode(playRound(playerSelection,getComputerChoice()));
-
         para.appendChild(node);
-        console.log(para);
         results.appendChild(para);
+
+        if(playerScore === 5){
+            const para = document.createElement("p");
+            let node = document.createTextNode("You've won the game!")
+            para.appendChild(node);
+            results.appendChild(para);
+        }
+        else if(computerScore === 5){
+            const para = document.createElement("p");
+            let node = document.createTextNode("You've lost the game...")
+            para.appendChild(node);
+            results.appendChild(para);
+        }
     });
 });
+
+
