@@ -52,6 +52,7 @@ function playRound(playerSelection,computerSelection){
 const results = document.querySelector("#results");
 const buttons = document.querySelectorAll("button");
 const score = document.querySelector("#score");
+const scoreSpan = document.createElement("span");
 
 var playerScore = 0;
 var computerScore = 0;
@@ -94,7 +95,9 @@ buttons.forEach((button) => {
 
 
 function scoreUpdate (playerScore,computerScore){
-    score.textContent = "Player: " + playerScore + " Computer: " + computerScore; 
+    scoreSpan.textContent = "Player: " + playerScore + "        Computer: " + computerScore; 
+    scoreSpan.setAttribute("id","points");
+    score.appendChild(scoreSpan);
 }
 
 scoreUpdate(playerScore,computerScore);

@@ -1,19 +1,36 @@
 html{
     background-color: black;
     color: white;
+    height: 100%;
 }
 
+#points{
+    white-space: pre-wrap;
+    padding: 8px;
+    border-style: solid;
+}
 
+body{
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    
+}
 #results{
     font-weight: 700;
     font-size: larger;
     text-align: center;
 }
 
-#buttons{ 
+#buttons{
+    margin-bottom: 20%;
+}
+
+
+#game{
+    display: flex;
+    flex-direction: column;
     text-align: center;
-};
-    
-#score{
-    text-align: center;
-};
+    justify-content: space-between;
+    height: 100%;
+}
